@@ -1,0 +1,88 @@
+npm i @angular/cli@16.0.0
+
+
+
+Why Angular ? 
+	-- technology(framework) for developing front end
+	-- Partial updates of page 
+	-- Reusability
+	-- security 
+		-- authentication
+		-- authorisation
+		-- Prevention third party attacks;(Bugs)
+	-- Popularity 
+		-- Speed
+		-- Ease of development/maintanence
+		-- Community support
+		-- Compatibility with major browsers
+		-- Bundle size -- Optimise -- Default
+	-- SPA Single Page Application
+		One html page gets loaded by browser ; user interaction -- update to the single html 
+	-- Client Side Routing	
+		menu; click on menu item ; new contents updated from the client side (no request to server)
+	-- Server side routing
+		menu; click on menu item; request sent to the server; based on request; send a response back to the client; client will populate the page based on response
+	-- Unit testing, Integration testing
+		-- Without the server 
+		-- Test the front end seperately
+		Karma test runner
+		jasmine -- test cases
+	-- MVC, MVVM
+		-- Model, View, Controller
+		View -- UI
+		Model -- Data available as part of UI
+		Controller -- Bridge between view and model
+			--  populate in the view the model data
+			--  changes in the view have to be updated in the model
+			--  view and model have to be in sync
+	
+	-- Two way data binding
+		--data in the view and model have to be in sync
+		-- communicate data between model and view -- data flows in both the directions
+		-- from model --> view
+		-- from view --> model
+
+	-- MVVM 
+		Model
+		View
+		ViewModel
+	Versions:
+		-- Angularjs(version 1) MVC 
+		-- Angular2 MVVM (component based architecture)
+		-- Angular4
+		....Angular18
+	-- 
+
+Faster speeds -- client side
+Authenticate a user -- server side 
+
+Angular installation:
+1. Nodejs -- Madeup of modules
+	-- npm
+		Npm -- Node package manager
+	Version : 16.x or 18.x
+2. npm install @angular/cli@16.0.0
+
+ng version
+npx ng version
+
+3. Create a sample project
+Folder of my choice; Open a cmd prompt
+ng new firstProject
+
+Module
+Semantic versioning:
+x.y.z
+x -- version number
+y-- major build
+z -- patch 
+
+
+		
+	
+
+1. Time for download; Size of app
+2. Size of application : 5gb; Memory
+		
+Good App -- As low memory as possible; speed of loading the app -- faster
+Refresh entire page --- Avoid -- refresh a part of page -- ajax 
