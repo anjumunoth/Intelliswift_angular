@@ -1,0 +1,104 @@
+Semantic versioning:
+x.y.z
+major.minor.patch
+
+
+
+
+^ -- caret symbol
+~ -- tilde symbol
+
+^ 16.0.6 -- compatible  with >= 16.y  Eg: 16.1.1; 16.0.6; 16.0.9
+~ 16.0.6 -- compatible  with >= 16.0.z  Eg: 16.0.6; 16.0.9; Not allowed : 16.1.0
+
+Angular Framework 
+React -- Library
+Both -- SPA
+Angular -- features inbuilt -- 2 way data binding; talk with server (http service); dependency injection; unit integration testing; services; modularity; 
+React -- View part of MVC; talk with server -- axios or fetch; state -- redux 
+
+node_modules
+	-- local copy of all the project dependencies
+
+package.json
+	-- most imp configuration file
+	-- list of dependencies (along with compatible version numbers)
+	-- For diff environments
+	-- Add some scripts
+
+
+
+package.lock.json
+	-- Optional file
+	-- Read only file
+	-- Internal dependencies of the dependencies
+	-- Module -- exact version; from where it has installed
+	-- 
+
+angular.json
+	-- configuration file
+	-- List the path of html page; path of entry point of app
+	-- Assets, style sheets. global scripts 
+	-- typescript configurations
+
+.ts -- typescript
+Browser -- 3 languages -- html,css and js 
+
+Transpilation -- TRANSlation and comPILATION
+translator -- translate the ts to js
+compiler -- compile the type script and list the syntax errors
+
+Why ts ??
+
+
+Javascript: weakly typed language 
+var i=10;
+i="hello";// In java -- error; js -- correct
+i=true;
+
+Is javascript compiled; IF yes where???
+Yes and in browser
+Can i compile js outside the browser -- NO
+Disadv --
+	weakly typed lang
+	always compiled in browser
+
+js -- 1980's
+Version 1, 2, 3, 4, 5(late 1990's)
+No version upgrade
+Version 5 --Classes, interfaces are not there
+Angular version 2 (2010) -- strongly typed; compile the code; work with classes
+typescript -- js + additional features(strongly typed, compile, oops)
+2015 -- js version 6 : ES2015; ES6
+
+
+index.html(inside the src folder) --> main.ts(inside the src folder)(data fetched from angular.json) --> bootstrap AppModule --> src/app/app.module.ts --> app.component.ts --> app.component.html
+
+Core parts of an Angular application:
+1. Module
+2. Component
+3. Directive
+4. Pipe
+5. Service
+
+Module 
+	-- Logical collection of components, directives, pipes and services
+	-- Work with @NgModule
+	-- Configuration object to @NgModule
+		declarations: List the components, directives and pipes (user defined)
+		providers: List the services
+		imports : Other modules which this module is going to be dependent on
+		bootstrap: Component which should be loaded first 
+
+
+Hot reloading: Any changes made to code -- save it -- recompile the app-- browser will be automatically updated (no manual refresh required)
+
+One way data flow
+1. Declare the var -- app.component.ts in Class
+2. Display the var's value -- app.component.html
+From .ts --> .html
+From model --> view
+
+
+
+
