@@ -1,0 +1,79 @@
+Module: Logical collection of services, components, pipes and directives
+
+Pipe: Transform the input data
+	-- In built pipes
+		-- json
+	-- User defined pipes
+		Pure and impure pipes
+
+
+<div>
+  <h1 style="background-color: aqua;">
+    Welcome to {{language}}
+  </h1>
+  <h1>Today : {{today}}</h1>
+  <h1> Luis Birthday this year : {{LuisBday}}</h1>
+  <h1>Employee object : {{empObj }}</h1>
+  <p>Employee Id : {{empObj.empId}}</p>
+  <p>Employee Name : {{empObj.empName}}</p>
+  <h1> Employee details : {{displayEmpObj()}}</h1>
+  <h1>Employee object displayed using the json pipe : {{empObj | json}}</h1>
+  <h1> Rainbow colours : {{rainbowColours}}</h1>
+  <h1> Is Visible : {{isVisible}}</h1>
+  <img src="../assets/thanks.jpg" alt="Image" />
+</div>
+
+export class AppComponent {
+  title:string = 'sampleProject';
+  language:string="Angular version 16";
+  today:Date=new Date();
+  LuisBday:Date=new Date(2024,11,24);
+  empObj={empId:101,empName:"sara"};
+  isVisible:boolean =true;
+  rainbowColours=["violet","indigo","brown","green","yellow","orange","red"];
+  displayEmpObj()
+  {
+    return JSON.stringify(this.empObj);
+  }
+}
+
+
+Modularity: Breaking a problem into smaller problems
+
+Create a component
+Easy:
+	-- Open a command prompt from the root folder
+	-- ng generate component header
+
+	-- Create a folder -- header in the src 
+		-- Create the 4 files in the header folder
+		-- header.component.html
+		-- header.component.css
+		-- header.component.ts
+		-- header.component.spec.ts -- > useful for unit testing
+		-- Update the app.module.ts
+			Add the header component in the metadata declarations	
+
+Flags:
+	ng generate component header
+
+Example of flags:
+No folder, only files to be created; flat list
+	ng generate component header --flat
+Give the selector name
+
+	ng generate component footer --selector shopping-cart-footer
+	ng g c home
+
+
+Long:
+Responsive web page:
+	-- Bootstrap
+	-- Angular material
+	
+Bootstrap
+	-- Colors
+	-- text
+	-- Grid
+	-- Card
+	
