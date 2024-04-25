@@ -1,0 +1,15 @@
+Bootstrap 
+	npm i bootstrap
+	npm i bootstrap@x.y.z
+min.js
+min.css
+
+Constructor
+	-- Special kind of function used to instantiate the object
+	-- Initialise the members of the class
+	-- Is always called implicitly whenever the component is created
+	-- Can't be called explicitly
+	-- Will be called only once during the entire lifecycle of object
+	-- First function to be called when the component is created
+	-- Services are injected in the constructor
+	--
