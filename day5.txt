@@ -1,0 +1,89 @@
+Products:
+
+json pipe:
+	-- Can apply it on array of objects, object, user defined object
+	-- Transform the data into string
+
+decimal pipe:
+	Syntax : data|decimal:digitsInfo:locale
+
+digitsInfo: 
+	mindigitsbeforedecimalPoint.minDigitsAfterFraction-maxDigitsAfterFraction
+
+currency pipe
+	Syntax : data|currency:string format the currency code:boolean value:digitsInfo:locale
+	-- @ optional parameters
+	-- First paramater : currency code of country
+	-- Second param : boolean value ; true -- show symbol; false -- show letters
+	-- If specifying the second param, then the first param becomes mandatory
+	-- data -- should be of number/string data type
+
+Mexican pesos:
+
+1234567
+In India: 12,34,567.0
+In US: 1,234,567.0
+In Mexico: 1,234,567.0
+
+
+Example:
+		    <p class="card-text"> {{product.price | currency}}</p>
+                    <p class="card-text"> {{product.price | currency:'INR'}}</p>
+                    <p class="card-text"> With False parameter{{product.price | currency:'INR':false}}</p>
+                    <p class="card-text">With true parameter {{product.price | currency:'INR':true}}</p>
+                    <p class="card-text">In Mexican pesos {{product.price | currency:'MXN':true}}</p>
+                    <p class="card-text">In Mexican pesos {{product.price | currency:'MXN':false}}</p>
+                    
+
+Data -- Going to come from db
+Displaying
+Data --Dynamic ??? YES
+
+Repeat the divs manually -- NO
+
+Repeat the divs -- length of productsArr -- dynamic
+
+html -- Can i have loops -- NO
+
+Angular -- loops -- yes
+
+Dynamic rendering : 
+ Rendering contents dynamically
+
+Module -- Logical collection of component, pipe, directive,services
+
+Directive :
+	-- 2 types
+		-- structural, attribute directives
+	-- Inbuilt, user defined directives
+	-- Structural directive
+		-- *ngFor, *ngIf, *ngSwitch
+
+*ngFor
+	-- Work like a for loop
+	-- Structural directive
+	-- Transform the structure of the element
+	-- Dynamically generate n number of elements where n is the size of array
+
+
+height
+min-height
+max-height
+
+Where should AddToCart component be added
+
+1. In App Component
+2. In ProductLists
+3. In Header
+4. In Footer
+
+Conditional Rendering:
+	-- Rendering of element-- Yes or no
+	-- Working with visibility -- Hiding or showing -- NO
+	-- Add the element or not to DOM
+
+
+Assignments:
+1. Footer component
+2. Size (height and width) of image and cards are same
+
