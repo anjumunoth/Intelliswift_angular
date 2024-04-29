@@ -1,0 +1,77 @@
+Dynamic rendering:
+	-- Done using *ngFor
+	-- Dynamically generated an element 0 or more times(based on array size on which *ngFor is iterated)
+	-- *ngFor -- Structural directive
+	-- 	
+
+Conditional Rendering:
+	-- Render an element or not based on a condition
+	-- Condition -- boolean value
+	-- If true element will be rendered
+	-- If false; element will not be rendered -- not added to DOM
+	-- Structural directive : *ngIf
+
+
+ng-template
+	-- Will not be added to the DOM directly
+	-- No styles can be added
+	-- Can be given a name using #
+	-- Can be rendered by adding as part of ngIf
+ng-container
+	-- Will be added to the DOM
+	-- No styles can be added
+	-- Can be given a name as itself
+	-- Can be used to render a ng-template(parent)
+
+Interpolation (Model --> View)
+Attribute Binding
+Property Binding
+Event Binding
+
+Event Binding:
+	-- One way data binding
+	-- View --> Model
+	-- HTML--> ts 
+	-- Working with events and event listeners
+	-- Symbol ()
+	-- Will work with angular events
+	-- Each angular event has a corresponding html event associated with it
+	-- Enclose the angular event within paranthesis
+	-- Event Handler call will be on right side of event binding
+	-- Event handler definition will be defined in the corresponding class component
+	-- Can also pass some data from the event to event handler -- Optional
+  <input type="button" value="Add To Cart" class="btn btn-primary" (click)="addToCartEventHandler(product);"/>
+
+
+<input type="submit" value="submit" onclick="submitEventHandler() />
+	-- Whenever the button is clicked, submitEventHandler will be called;
+	-- submitEventHandler function definition will be defined in js page
+	-- Number of events : click, dblClick,keypress, mouseIn .....
+
+Interpolation
+	-- One way data binding
+	-- Model --> View
+	-- ts --> html
+	-- Always typecasts the data to string	
+
+Attribute Binding and Property Binding:
+	-- One way data binding
+	-- Model --> View
+	-- ts --> html
+	-- Useful for properties which expect a non string value
+	-- can also pass a string to the bounded attribute
+	-- Enclose the property in square brackets
+	-- On the right hand side give the value which it requires
+
+// The following button is disabled
+<input type="button" value="submit" disabled />
+// Make the disabled feature dynamic
+// Boolean var -- isDisabled ; Initialise with true
+<input type="button" value="Button1" disabled={{isDisabled}} />
+
+
+Parent to child communication:
+ProductListsComponent --> AddToCartComponent
+
+
+
