@@ -1,0 +1,92 @@
+ Two way data binding:
+or
+Acheieved : One way data binding in both the directions
+
+One way data binding in both the directions:
+
+Clicked the button -->Passed the product details and flow of control --> One way data flow from view to model
+In the event handler, set showAddToCart to true(model); AddToCart component got mounted; ---> One way data flow from model to view 
+
+
+
+Only html,css, js:
+	event; corresponding event handler -- in js file
+
+Angular:
+1. Event binding 
+	-- One way data flow from the view to the model of the same component
+	-- Working with angular events
+	-- Bind the angular event with a event handler
+	-- Enclose the angular event in paranthesis
+	-- Define the event handler -- in the same component's class (inside the class, outside the constructor)
+
+Parent component-> Child component communication
+	-- Sending some data from the parent to child component
+	-- Parent: ProductList
+	-- Child : AddToCart
+	-- data : product on which the user has clicked on
+1. Add the data(which has to be sent to the child) to the child component tag using attribute binding 
+2. In the child component, will specify the data which will be received from the parent
+
+
+<img [src]="productsArr[0].imgUrl" alt="Product Image" style="border:5px solid blue;"  />
+1. Property binding : From Model-> View
+2. Added it to a inbuilt property of img tag which is src as part of opening tag
+3. Getting the value from a variable which is declared in the class component
+4. Since it is property binding , enclosed that particular property in square brackets
+
+
+Now imagine the img tag as child and ProductList component as parent
+1. Property binding : From Parent ->Child
+2. Add a user defined property to the child component as part of opening tag
+3. Getting the value from a variable which is declared in the parent component
+4. Since it is property binding , enclosed that particular property in square brackets
+companyName is declared in parent component
+colors is declared in parent component; 
+colors=["red","green","blue"];
+selectedProduct={productId:101,productName:"Imac"}
+<app-add-to-cart  [myCompanyName]="companyName" [myColours]="colors" [selProduct]="selectedProduct" >
+</app-add-to-cart>
+
+
+1. Can i pass multiple values to the child component? YES
+2. Can i pass multiple values of multiple data types to the child component ? YES
+
+Requirement :
+Click on one product -- productdetails to be sent to the child component
+
+In the child component:
+	-- Specify what is the data which will be received from the parent
+		-- data type of the data
+		-- number of data 
+		-- optional data or mandatory data
+		-- alias name for the data
+		-- depending on the requirement -- mutate the data or keep it immutable
+
+
+Decorators:
+	-- Starts with an @ symbol
+	-- Pass some metadata as object to the decorator
+	-- Import the decorator from @angular/core
+	-- Decorators transform the element on which it is added
+import {Input} from "@angular/core";
+
+Place the following lines inside the child component class(outside the constructor) 
+@Input() myCompanyName:string;
+@Input() myColours:string[];
+@Input() selProduct:Object;
+
+
+Click on AddToCart button --> showAddToCart becomes true  --> AddToCartComponent is mounted
+
+
+Constructor
+	-- console.log is present in constructor
+	-- Constructor is executed only once
+	-- First method to be called when the component is mounted
+When are the variables going to be getting the data from the parent?
+When is the UI populated/loaded?
+lifecycle of component?
+	
+
+
