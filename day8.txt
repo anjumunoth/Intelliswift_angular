@@ -1,0 +1,67 @@
+Lifecycle of component:
+	-- Methods 
+	-- Implicitly invoked
+	-- Invoked only once, invoked multiple times
+	-- Cannot be invoked explicitly
+-- 3 phases
+	-- Mounting, Updation, UnMounting
+-- Mounting:
+	-- stages through which component goes through during the loading of component
+	-- constructor
+	-- @Input receives the data from the parent
+	-- ....
+	-- Loading the UI
+	-- ngOnInit
+
+constructor:
+	-- First method implicitly invoked when the component is invoked
+	-- Executed only once during the entire lifecycle
+	-- Initialise the component's properties
+	-- Here the data from the parent is not available in the @Input 
+	-- Also have to initialise the @Input as well
+
+ngOnInit
+	-- Another lifecycle method
+	-- Implicitly invoked
+	-- Invoked only once
+	-- Cannot be invoked explicitly
+	-- The data from the parent is available in the @Input's
+	-- Implement an OnInit interface
+		-- implement ngOnInit
+	-- purpose --
+		-- Give a request to the server to fetch some data
+		-- Subscribe to 3rd party 
+		-- Set up timers
+
+Decorators:
+	-- We can pass some metadata to the decorators
+		-- As a configuration object
+
+@Input
+	-- Decorator
+	-- When the data is received
+	-- data type
+	-- Required
+	-- Getter and setters
+		-- Transformation on the data
+		-- Adv:
+			-- Perform the transformation
+			-- Manipulate the private variable
+		-- Disadv:
+			-- Need a private variable and have to set up getters and setter properties
+	-- transform metadata
+		-- Define a function on how to do transformation
+		-- Transformation on the data
+		-- First transformation will be performed and then the data will be assigned
+		-- Better practice then getters and setters
+		-- Rules to be followed when working with transform
+			-- transform function 
+				-- no heavy tasks to be performed
+				-- cannot be set conditionally
+				-- Should be pure function (no side effects)
+					-- requests to server -- NO
+
+	-- alias meta data
+	-- booleanAttribute and numberAttribute
+	
+		
