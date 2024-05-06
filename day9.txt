@@ -1,0 +1,45 @@
+@Input
+	-- numberAttribute
+		-- function which will transform the string input into a number 
+	-- booleanAttribute
+		-- function which will transform the string input into a boolean
+	
+
+@Output
+	-- One way data communication between child and parent
+	-- child --> parent
+
+<input type="button" (click)="incrementCtr();" value="increment Counter"/>
+-- incrementCtr is a function which is defined in the corresponding class component
+-- Event binding
+-- click -- angular event
+-- For each html event -- there is a corresponding angular event
+-- triggering the html event -- angular event also gets triggered
+
+@Output
+	-- send data/flow from child to parent
+	-- Event binding
+	-- Work with user defined events
+		-- Trigger the user defined events ???
+		-- Embed the data as part of event trigger
+		-- Define the event handler -- Where???
+
+
+In the child component: Declare an event, initialise the event and trigger the event
+1. Declared an @Output decorator of type Eventemitter with the data type of the data to be sent
+
+@Output() passCtr:EventEmitter<number>;
+
+2. Initialised the passCtr
+this.passCtr=new EventEmitter<number>();
+
+3. Triggered the event -- Call the emit event and pass the data as a param
+this.passCtr.emit(this.ctr);
+
+In the parent component: has to receive the data which is embedded in an event
+	-- will get the data in the parent when the event is triggered
+	-- have to attach an event handler to the event
+	
+	-- define the event handler(function) in the corresponding component ts file 
+
+
