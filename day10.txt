@@ -1,0 +1,96 @@
+1. AddTocart button of Asus laptop
+	-- Mounted the AddToCart component -- Process complete (constructor call is also)
+2. Clicked again on add to cart of Apple laptop
+What happens
+	a. @Input changes -- data coming from Product List --> Repaint the UI with the new product details(one way data binding ; model changes --> looking out for changes --> update the view based on changes); No unmounting of AddToCart happens
+	b. @Input changes -- data coming from Product List -->AddToCart gets unmounted; AddToCart mounts again with the new data(Apple laptop) 
+
+Answer : a happens
+
+Problem:
+	Whenever the @Input changes (data coming from the parent) -- reinitialise the quantity selected to 1. 
+Solution :
+	-- 1. Lookout for changes in the @Input
+	-- 2. If there are changes, reinitialise the quantitySelected =1
+		-- Can it be done in constructor -- NO
+		-- Can it be done in --ngOnInit -- NO -- invoked only once during the mounting phase
+	
+Lifecycle methods:
+	-- 3 phases
+		-- Mounting
+			constructor
+			...
+			UI is loaded
+			ngOnInit
+		-- Updating 
+		-- UnMounting
+
+ngOnChanges 
+	-- lifecycle method
+	-- Implement an interface OnChanges
+	-- invoked multiple times
+	-- First in the mounting phase (after constructor; before UI is loaded)
+		-- purpose -- @Input gets the values; hence this method is invoked
+	-- Invoked in updation phase 
+		-- when first method
+		-- what is purpose -- whenever the @Input changes; method is invoked implicitly
+	-- Ideally should be in child component
+
+ngOnChanges(changes:SimpleChanges):void
+{
+	// changes object -- during the mounting phase -- all the @Input properties 
+	// changes object -- during the updation phase -- Only those @Input properties which has changed
+	// For each @Input property
+	// -- previousValue, currentValue, firstChange
+}
+
+ngDoCheck:
+	-- lifecycle method
+	-- Implement an interface DoCheck
+	-- invoked multiple times
+	// -- during the mounting phase -- YES
+    	// when in mounting phase -- after constructor, ngOnChanges, ngOnInit
+	//-- during the updation phase
+     	// -- any changes to the state(properties of component on which the ngDoCheck has been defined) or @Input
+	-- Purpose ????
+   
+
+	
+ngDoCheck(): void {
+    console.log("ngDoCheck of AddToCart component called");
+    // when all is this lifecycle method invoked -- 
+    // -- during the mounting phase -- YES
+    // when in mounting phase -- after constructor, ngOnChanges, ngOnInit
+    //-- during the updation phase
+     // -- any changes to the state or @Input
+    // invoked once or invoked many times -- invoked many times
+  }
+
+ngOnDestroy
+	-- lifecycle method
+	-- Implement an interface OnDestroy
+	-- invoked only once just before the component gets unmounted
+	-- Purpose
+		-- Clean up, closing connections, unsubscribing from third party API, clearing the timers, unsubscribing from observables
+	
+
+
+ngOnDestroy(): void {
+    alert("Product will not be added to the cart");
+  }
+
+Requirement
+On child -- click on cancel button trigger--> On the parent component , change the showAddToCart to false
+How ?? 
+	-- Child --> Parent communication using @Output
+	-- Using EventEmitters -- no need to embed any data ; void  
+	-- Trigger the event in the child component
+	-- write a function(event handler) in ProductLists
+		-- set showAddToCart -- false
+
+Requirement
+Click on confirm button in Child component --> alert the product --> unmount(remove) the AddToCart component and update the quantity in ProductList(parent) after subtracting the quantitySelected
+-- Answer : -- Child --> Parent communication using @Output
+
+	
+
