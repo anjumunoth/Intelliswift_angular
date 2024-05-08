@@ -1,0 +1,48 @@
+<!-- 
+    Toggle UI between 2 components ProductList and Cart
+    Using 
+
+ -->
+<ng-template #cartButton>
+    <input type="button" value="Show Cart" class="btn btn-primary" (click)="toggleDisplay()" />
+</ng-template>
+<ng-template #productListButton>
+    <input type="button" value="Show Product Lists" class="btn btn-primary" (click)="toggleDisplay()" />
+</ng-template>
+<ng-template #displayProductList>
+    <app-products-list></app-products-list>
+</ng-template>
+<ng-template #displayCart>
+    <app-cart></app-cart>
+</ng-template>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 offset-10 mt-1">
+            <ng-container *ngIf="showCart;then productListButton;else cartButton">
+            </ng-container>
+        </div>
+    </div>
+    <div class="row">
+        <ng-container *ngIf="showCart;then displayCart;else displayProductList">
+        </ng-container>
+    </div>
+
+</div>
+
+
+Communication between 2 components 
+1. @Input (parent->child)
+2. @Output (child->parent)
+3. Between 2 components A and B:
+	Let C be common parent of A and B
+	@output -- send from A to C
+	@Input -- send from C to B
+	-- Disadv:
+		-- Lot of components involved -- Complexity
+		-- Unneccasary disclosure of data to unneeded components
+		-- Components have to do extra work
+		-- Confidential data -- risk of exposure, they may be muted
+		-- Data might get muted or changed
+		
+
