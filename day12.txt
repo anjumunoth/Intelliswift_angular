@@ -1,0 +1,27 @@
+1. ProuctList is not persisting the data
+	productsArr data -- from the server or db
+	Move the data of productsArr from ProductList to Home
+
+2. Components gets destroyed
+	When ? 
+
+When all will a component be unmounted
+	-- Manually
+		-- showAddToCart -- toggled
+			true-- mount the component
+			false -- unmounted the component
+	-- Home component
+		-- Toggling the 2 components
+			-- When one component gets displayed, the other gets unmounted
+	-- Close the browser -- app ends; all the components get unmounted
+	-- 
+
+3. 
+
+Pipes:
+	-- json
+	-- currency
+	-- lowercase
+	-- uppercase
+	-- date
+	
