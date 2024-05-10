@@ -1,0 +1,44 @@
+
+PIPES:
+	-- Transform data
+	-- Formatting data 
+	-- Mutating the data/ changing the data -- Only for display purpose
+	-- Custom pipes
+	-- 
+
+
+myArr=["red","green","blue"]
+
+{{myArr:slice:0:1}};//"red"
+
+Custom pipe:
+	Use cases:
+		-- Pick the first 3 characters from each element of the array
+	-- ng g pipe pipeName
+	-- @Pipe decorarator which is added to the class
+		-- Metadata -- object
+			-- Mandatory Property: name
+	-- Implements an interface PipeTransform
+	-- Override the transform method
+		-- Define the value has to be transformed
+	-- 
+
+An array of objects: 
+	productsArr|displayArray:"even";// even records should be printed
+	productsArr|displayArray:"odd"// odd records should be printed
+
+Search functionality
+	In the app, there are many components where this search functionality is needed
+	1. Should I write the search functionality in component level
+	2. Should I write the search functionality in global level -- More appropriate
+	-- Code reusability and functionality which will be used in multiple components
+	--a. function -- 
+	--b. service -- depenedency injection
+	--c. component -- child component @Input, @Output
+	--d. custom pipe
+		-- transforming the table based on search term
+			-- filter the records in the transform method based on search term
+
+
+
+
