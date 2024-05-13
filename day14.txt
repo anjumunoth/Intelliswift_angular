@@ -1,0 +1,37 @@
+Pipe:
+	-- working with data
+	-- Add the pipe as part of interpolation
+	-- Add the part of *ngFor
+	-- transform the data
+	-- in built
+		-- currency, date, json, uppercase, lowercase, number, slice, async 
+	-- custom pipes
+
+Component
+
+Directives:
+	Structural 
+		-- Change the structure of the element
+		-- *ngFor, *ngIf, *ngSwitch
+		-- *ngSwitch -- multiple if conditions
+		
+	Attribute directives
+		-- Directives added as attributes/properties
+		-- ngClass, ngStyle
+	Custom directives
+*ngSwitch
+
+switch value
+case 1:
+case 2:
+case 3:
+
+ngClass
+	-- Pass a class name as atring
+	-- pass multiple classes as an array of strings
+	-- Pass class name as objects which will be dynamically added or not based on condition
+
+Dark theme, light theme
+	-- switching between classes
+
+
