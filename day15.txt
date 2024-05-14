@@ -1,0 +1,29 @@
+Directives
+	-- Structural directive
+	-- Attribute directive
+		ngClass and ngStyle
+	-- Custom Directive
+		-- Structural directive
+		-- Attribute directive
+
+pipe?
+	-- transform the data
+
+
+Why directives are needed ?
+	-- Represent element in a specific way
+	-- Used to change the values of the inbuilt attributes of that element
+	-- 
+why a custom directive ??
+	-- Create a tool tip -- structural custom attribute
+	-- Hover a image -- new image; change the src attribute -- custom attribute directive 
+	
+Custom directive
+	-- For the element on which the directive has been applied 
+		-- changed the attribute value for that element
+		-- Work with the events on that element
+	-- Same directive can be applied to multiple elements of different/same type
+	-- Can pass Additional attribute(s) to the directive using @Input
+	-- Can we bind events to the element on which directive ahs been added -- YES
+
+	
