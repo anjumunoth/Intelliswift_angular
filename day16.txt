@@ -1,0 +1,43 @@
+custom Directives
+	-- custom attribute directive-- appCustomBackgroundColor	
+	-- custom structural directive -- customToolTip
+
+component vs directive vs pipe
+	-- component is a special type of directive. directive with a view(template)
+	-- directive -- Directives are classes that add additional behavior to elements(inbuilt html elements or angular elements) in your Angular applications
+	-- pipe -- Pipe are classes that transform the data on which they are applied. 
+	-- Directive with a template is a component
+	-- Pipe -- transform the data whereas directive -- transform the element
+	-- Component -- MVC
+	-- Directive -- Doesnot have any view associated with it but can have model data
+
+Features:
+	-- Two way data binding
+	-- One way data binding -- attribute or property binding; model --> view; []
+	-- One way data binding -- Interpolation; model --> view ; {{}}
+	-- One way data binding -- event binding;  view --> model; ()
+	-- One way data binding in both the directions -- using attribute binding and event binding
+
+Two way data binding -- ngModel
+	-- Any changes made to model or view , updates the other
+	-- Model and view are always going to be in sync
+	-- banana in a box symbol : [()]
+	-- ngModel
+		-- Work with FormsModule
+		-- Add it to app.module.ts as part of @NgModule decorator metadata imports
+	-- Mandatory -- the element should have an name attribute
+	-- Two way data binding model and view
+	-- Two way data binding parent and child
+
+	
+
+Communication between 2 components:
+	-- parent->child @Input
+	-- child->parent @Output
+	-- siblings ; @Output -- go to the common parent; common parent-> sibling @Input
+	-- [(ngModel)]
+	-- services
+	-- state management tools (ngRx, redux)
+
+
+
