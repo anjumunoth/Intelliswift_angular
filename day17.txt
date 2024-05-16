@@ -1,0 +1,68 @@
+Forms
+	-- Set of Controls(textbox, buttons,drop down lists, radio button)
+	-- Hold data and are submitted
+	-- Client can handle or can be sent to server
+	-- Can be used to redirect
+	-- Communication(Bi-directional) between the user and the app
+	-- Validations
+		-- Can be done or client side or server side
+		-- Client side -- check the format of email or name or phone number, password length, required
+		-- Server side -- Authentication, No duplication
+		-- When should be validations be done; based on requirement
+			-- when the user is typing
+			-- when the text box has lost focus
+			-- when the user has clicked on submit
+		
+	-- Error messages/ handling ; Successfully submitted
+		-- when to display error message -- based on requirement
+	-- 
+
+Angular forms
+	-- JS Sanitisation
+	-- Template driven forms
+	-- Model driven forms
+
+Template driven form
+	-- Working on the form and using the template(view) in majority of times
+	-- Validations
+	-- Error messages
+	-- Custom validations ; add the custom validations
+	-- Collect the data entered by the user
+	-- Adv, disadv and when to go for template forms
+
+Register form
+Controls:
+	-- FirstName
+	-- LastName
+	-- email 
+	-- password
+	-- Confirm Password
+	-- Age -- Dropdown from 18 to 75
+	-- Start date -- type="date"
+	-- End Date -- type="date"
+	-- Mobile Number 
+Validations:
+	-- Should be an intelliswift email
+	-- Start date should be lower than end date
+	-- Start date > 1950
+	-- End date < 2050
+	-- Required fields: All
+	-- Password -- Strong
+	-- Password and confirm Password should match
+	-- Mobile number -- number ; only 10 digits
+	-- FirstName and LastName should be only alphabets
+	-- Email Id should not exist already(Primary key) -- Server side validation
+	-- 
+When to do validations
+	-- As per the control
+Error mesasges-- where to display and when to display
+	-- below the control
+	-- Once validation is done
+
+
+Tasks:
+	1. Display a red asterix next to required field labels
+	
+
+
+		
