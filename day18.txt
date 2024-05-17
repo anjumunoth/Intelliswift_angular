@@ -1,0 +1,38 @@
+ngForm directive
+	-- Binds itself to the form
+	-- Keeps tracking the various FormControls
+	-- Create a FormGroup instance at top level
+	-- Create FormControl instance and add it to every child element which has a ngModel directive
+	-- value: Object containing the various FormControl's values
+	-- valid: Return true if all validations on all FormControl are valid else false
+	-- touched : Return true if user has enetered a value in atleast one of the FormControl otherwise else
+	--submitted : Return true if form is submitted or false
+
+FormControl
+	-- basic building block of form
+	-- Representing a single control
+	-- Will have the ngModel directive
+	-- Track the value, user interaction, check the validation status of the form control
+	-- ngModel will use the name attribute to create the FormControl
+	-- Properties :
+	-- value : Current value of the element
+	-- valid and invalid -- Working according to validation rules
+	-- dirty -- True value when the user has made any changes(added values) to the element otherwise false
+	-- pristine -- negation of dirty
+	-- touched -- Return  a true value when the user has entered a value in element and blurred out(lost focus on the element)
+	-- untouched --Negation of touched
+   
+Custom validation in template form:
+	-- Based on custom directives; Create a custom directive
+	-- Implement Validator interface
+	-- Override the method validate
+	-- In validate method 
+		-- Call the validation creation function and pass the reference of the control
+		-- validation creation function will return  null if there are no errors else return the  validation error message
+    
+Tasks:
+	1. Display a red asterix next to required field labels
+	2. Diplay the validation error messages for lastName
+	3. Add all controls and required validator and display error message
+	4. Check for mobile number to have only 10 digits
+            
