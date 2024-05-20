@@ -1,0 +1,23 @@
+Custom validation in a template driven form:
+1. Create a directive 
+2. Create a validation function (in a seperate folder called as Validators)
+	Validation function will return an inner function
+
+3. Directive class has to implement Validator interface(sync validations)
+4. Override the validate method (for working with the interface	)
+	-- Called the validation function
+5. If there are errors, will return the error. On no errors, will return null
+6. Add the directive to the form control
+7. Add the corresponding error messages
+8. Add the validation directive to the existing list of NG_Validators: As part of @Directive metadata
+@Directive({
+  selector: '[appCheckForPasswordStrength]',
+  providers:[{
+    provide:NG_VALIDATORS,
+    useExisting:CheckForPasswordStrengthDirective,
+    multi:true
+  }]
+})
+
+
+Pass a custom value to custom validator function -- YES
