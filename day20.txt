@@ -1,0 +1,37 @@
+Custom Validation based on 2 fields
+	-- Create a directive
+	-- Where should the directive be added
+	a. In password field
+	b. In confirm password field
+	c. In both the controls
+	d. At the form level -- access all the fields -- YES
+
+
+In a template driven form
+At the form level
+	-- Create a reference var
+	-- Assign ngForm to the form reference var
+Add the form controls
+	-- To the textboxes, add the ngModel directive; ngModel directive will add it as a form control to the template form
+	-- To get the errors and status of data (dirty,pristine,touched, untouched) 
+		-- add a name attribute
+		-- Create a ref var for the text box and assign ngModel to it 
+
+Add the validators
+	-- Inbuilt
+		-- required, min-length, max-length, email, pattern
+	-- Custom validators
+
+Add the validation error messages		
+	
+
+1. EmailId should exists already -- Error msg -- emaild id is not found
+2. Password should not contain the same text as the one in emailId before @
+
+EmailId: saragupta@intelliswift.com
+Password: Saragupta@123 -- Not valid
+Password : Qwerty123# -- Valid
+
+
+
+
