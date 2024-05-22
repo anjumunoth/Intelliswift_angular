@@ -1,0 +1,100 @@
+Template Driven form
+	-- Module -- FormsModule
+	-- Add the validators,create the form controls, form group -- Html page/template
+Reactive forms or model driven forms:
+	-- Module -- ReactiveFormsModule
+	-- Add the validators,create the form controls, form group -- ts page
+FormGroup
+	-- Collection of FormControls
+
+Steps to create a reactive form
+1. Add the ReactiveFormsModule to app.module.ts in the imports metadata
+2. Bind the formGroup attribute at the form level
+<form [formGroup]="registerReactive">
+
+3. In the corresponding .ts 
+	--Create the form group and add the various formControls to it
+	-- If required, create the getters
+this.registerReactive=new FormGroup({
+      "firstName":new FormControl("",Validators.required),
+      "lastName":new FormControl("",Validators.required),
+      "password":new FormControl("",Validators.required)
+      
+    })
+4. For each text box add the binding to the formControlName
+<input type="text" class="form-control" formControlName="password"/>
+5. Add the validation error messages
+	-- Can be done in 2 ways
+____________________________________________________________________________________________________________________________________
+	<div *ngIf="registerReactive.controls['firstName'].invalid && (registerReactive.controls['firstName'].touched || registerReactive.controls['firstName'].dirty)">
+                        <p *ngIf="registerReactive.controls['firstName'].errors?.['required']"> First Name is mandatory</p>
+
+         </div>
+_____________________________________________________________________________________________________________________________________
+ <div *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)">
+                        <p *ngIf="lastName.errors?.['required']"> Last Name is mandatory</p>
+
+                    </div>
+_____________________________________________________________________________________________________________________________________
+
+
+Creating a form group:
+this.registerReactive=this.fb.group({
+    firstName:['',{validators:[Validators.required,Validators.minLength(3)],updateOn:"blur"}],
+    lastName:['',{validators:[Validators.required,Validators.minLength(3)],updateOn:"blur"}],
+    password:['',{validators:[Validators.required,Validators.minLength(8),passwordStrengthValidator()],updateOn:"change"}]
+   })
+
+Adding the form controls:
+firstName: [
+	"initial value",
+	{
+		validators:[inbuilt and custom validators],
+		asyncValidators:[asyncValidators],
+		updateOn: "change"(default) or "blur" or "submit"
+	}
+]
+
+When should the validation happen:
+updateOn : "change" or "blur" or "submit"
+default value : change
+
+password:['',{validators:[Validators.required,Validators.minLength(8),passwordStrengthValidator()],updateOn:"change"}]
+Validation on password will happen whenever the value of the corresponding text box changes;
+
+password:['',{validators:[Validators.required,Validators.minLength(8),passwordStrengthValidator()],updateOn:"blur"}]
+Validation on password will happen whenever the user blurs out of the corresponding text box
+
+Validators:
+	Synchronous 
+		-- Validity state of is immediately calculated by the validator as soon as the validation function is called
+	Asynchronous
+		-- Calculate the validity state in a asynchronous way
+		-- Eg: Check if the email already exists or not in the db 
+		template drive : Create a directive; Implements AsyncValidators
+		model driven form: Add the validator function call as part of the asyncValidators
+
+function myFunc1(p1)
+{
+	if(p1%2 ==0)
+		return "even";
+	else
+		return "odd";
+}
+
+function myFunc2(p1)
+{
+	console.log("hello");
+	setInterval(()=>{
+		if(p1%2 ==0)
+			return "even";
+		else
+			return "odd";
+	},5000);
+	console.log("bye");
+}
+
+var res=myFunc1(10);
+console.log(res);//even
+myFunc2(10);//hello bye even(after 5 secs) even(after 5 secs) even(after 5 secs) even(after 5 secs) ........ 
+
