@@ -1,0 +1,49 @@
+Routing:
+https://www.intelliswift.com/industries
+
+Query string :
+https://www.amazon.in/s?k=headphones+wireless&crid=CG0DK7T1JOEY&sprefix=headphone%2Caps%2C285&ref=nb_sb_ss_ts-doa-p_2_9	
+
+Params:
+https://www.amazon.in/boAt-Cancelling-Bluetooth-Headphones-Immersive/dp/B09MTRDQB5/ref=sr_1_2_sspa?crid=CG0DK7T1JOEY&dib=eyJ2IjoiMSJ9.q448bOxy0tuzyYSARUrky0MrrRgUtSJLUMPArEo1JDmN4u2NSc1E1-nUeDdfrH2u9vYuIcyby8ijUA0o4dO2VGT_HSoGx5tV2WIBs76yg00qgbPncjTbdttbMgnjsXZ0z6uyGw-lkyK4sJVJzYE1Y_IR8TCku112f5ANNS3UnBy5VqtmRBS0dwpXhZFZaEcFDoqD2npe5GjdkSxCZZ84YOuHPi1lwbyOqDOy8b_XrB0.3RPkZtK8RBPAHya5F1bbQBrGELJ3qh9AtRAcxN1Mtzc&dib_tag=se&keywords=headphones+wireless&qid=1716482852&sprefix=headphone%2Caps%2C285&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1
+
+Login page : User has entered the username and password; Can the username and password be sent as params or query string?? NO -- visible as part of URL -- send non confidential information
+
+Can we send some info over the route not visible in the URL -- YES
+
+Microservices (server app): group of API's together form a single app;
+Monolithic application: a single app (a single microservice) 
+
+Today -- Microservices(server side)
+	Adv:
+	-- easier to maintain
+	-- modularity
+	-- deployment is easier; maintanence, testing is easier
+	
+Complex app on the server-- use microservices; (agile)
+
+Front end -- complex -- single app or multiple apps combined into one single app
+
+Macroservices: microservices concept applied to the front end 
+
+Create a new angular app:
+ng new projectName
+2 questions:
+1. what kind of styling
+2. Do u want to do routing or not -- Yes
+
+Angular -- SPA -- will have one index.html page; On navigation, different contents are loaded on the same index.html 
+
+Routing:
+	-- Pattern matching
+	-- switch
+
+1. Is the url address case sensitive -- YES
+	-- For both the routes, have Corresponding route in the routes array and in the routerLink directive
+	-- Best practice -- dont have the route names in lower case and upper case
+2. What if i type a route which does not exists -- empty contents as part of router outlet and  redirect to localhost:4200;
+3. 
+
+
+
+
