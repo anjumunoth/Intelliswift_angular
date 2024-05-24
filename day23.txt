@@ -1,0 +1,52 @@
+1. Generate the module
+ng g module app.routing --routing --flat
+
+First match wins strategy
+
+@Input:
+	Decorator
+	data from parent component to child component
+	data from component to directive
+	data from the URL to component(version >=16.x)
+
+How to fetch the params from the URL:
+1. 
+this.activatedRoute.snapshot.params["pId"]
+this.activatedRoute.snapshot.paramMap.get("pId");
+2. Using observables:
+	this.activatedRoute.params....
+3. Angular Version >= 16.x
+a. In app.routing.module.ts: binding the parameters to the component Input 
+imports: [RouterModule.forRoot(routes,{bindToComponentInputs:true})],
+b. In the component add @Input decorator with the params key
+
+Params: productId
+1. Is it suggested to send the entire product details as params: NO
+
+Where will i get the data from -- backend (request, response -- data);
+
+Why services ?
+1. Business logic
+2. Give a request to server and get the response
+3. Store/maintaining global data for the application
+
+
+
+Payment Options:
+1. Credit card/Debit card -- CC Number, Name, security number,expiry date 
+2. Wire Transfer: Drop down list of banks, naviagate to the bank's page 
+3. Paypal -- naviagate to the paypal account login page
+4. Apple Pay -- username:
+
+Tasks:
+A.	1. Display a red asterix next to required field labels
+	2. Display the validation error messages for lastName
+	3. Add all controls and required validator and display error message
+	4. Check for mobile number to have only 10 digits
+	5. Do the validation for end date: End date < custom value
+	6. Validation : startDate < endDate
+B. Complete the styling of 2 menus
+C. Complete paymentByCard component UI form with the validations
+
+
+
