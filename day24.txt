@@ -1,0 +1,68 @@
+Share some data between components
+When the user clicks on Proceed to Payment
+	--> If user has logged in --> proceed to payments page
+	-- If user has not logged in --> navigate to login page
+
+Route Guards::
+	-- Inbuilt route guards
+	canActivate route guard
+		-- ng g guard guardName; (select the type of guard )
+		-- Check if the route is to be activated or not
+		-- guard
+			-- type of canActivateGuardFn
+		-- return boolean
+			--true navigation continues
+			-- false navigation gets cancelled
+			-- URL tree current navigation is cancelled and newly navigates to the URL tree
+		-- add the guard to the respective route in the routes array in app.routing.module.js
+		-- Can also create the guard as a service
+
+Pass/communicate data between 2 components:
+	--Between parent and child-- @Input, @Output
+	--Between siblings --common parent
+	-- Between parent and child -- ngModel; banana in the box syntax
+	-- Services
+
+
+
+Service
+	-- Dependency injection
+	-- Class which perform business logic
+	-- why should we Inject the service
+
+ this.authService=new AuthService();// this should not be done
+Whenever the component is mounted, create a new instance of the service
+-- tight coupling between the service and component
+-- unit testing becomes difficult
+For different components(same type or different type), different instances of service will be created
+
+Service -- centralised place where data is going to be held;
+-- Singleton
+-- If there is no instance of service; create an instance;
+-- If already an instance of service exists, work with that same instance
+-- Dependency injection of service -- work like a singleton; one instance of service will only exists. All the components(same type or different) will share the same instance.
+
+Dependency injection:
+1. Dependency injection of the service 
+	3 places where the service can be added as a dependency
+		-- project
+		-- module ; in app.module as part of providers metadata
+			-- All the elements(components,directives and pipes of that module) will share the same instance of the service
+		-- component -- only that component will have that instance
+2. Inject the service in the constructor as params or use the inject method in the constructor
+Method 1: 
+	constructor(private ctrService:CounterService){}
+
+Method 2:
+	ctrService:CounterService 
+	constructor(){
+	this.ctrService=inject(CounterService);
+	}
+
+constructor(@Inject(SOME_VAR)private ctrService:CounterService){}
+
+
+
+
+
+
