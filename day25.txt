@@ -1,0 +1,36 @@
+Register page 
+Click on Register button
+	-- All validations are successful
+	-- Send the data to server for persistence
+	-- Once successful response from the server -- pass a message -- user registration successful; navigate to login page
+	-- Failure response -- show them the failure message as a normal error message; stay on the same page; all details should stay 
+
+Inject a service -- 3 places to add the service dependency 
+	-- Application level
+		-- providedIn:root
+	-- Module
+		-- @NgModule
+			providers:[ClassName of the service]
+	-- Component	
+		@Component
+			providers:[ClassName of the service]	
+
+
+Login Page:
+Click on Login button
+	-- All validations are successful
+	-- Send the data to server for server side validation
+		Check if emailId exists
+		If email and password match
+	-- Once successful response from the server -- display a message;navigate to home ;
+	--  Failure response
+		emailId exists
+		email and password do not match
+		server error
+
+
+Toggle between the login and logout button
+What should happen if the user clicks on logout: Write the anchor element
+Observables
+
+	
