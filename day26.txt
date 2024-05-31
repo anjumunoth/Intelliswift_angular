@@ -1,0 +1,26 @@
+Send the response as a stream of data.
+Client -- receive the data as streams (chunks of data is going to coming in a sequential order)
+
+Streams of data -- Observable
+
+next 
+-- function
+-- get the data
+-- called multiple times
+
+error
+	-- function
+	-- called only once
+	-- whenever there is an error in stream
+
+complete
+	-- function called when the stream is complete
+	-- called only once
+
+Subscribing -- Opening the tap
+Unsubscribing from an Observable:
+	-- Closing the tap
+
+
+In the observer : give 3 function definitions : next, error, complete
+Calling the function : as part of observable creation
