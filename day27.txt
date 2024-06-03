@@ -1,0 +1,37 @@
+async pipe
+	-- inbuilt pipe
+	-- Take is an input -- Observable as input
+	-- Transformation -- Return the last value of the observable
+	
+When to use async vs when to use subscribe
+	-- Async pipe : data directly
+	-- Subscribe : Transformation of data before displaying
+	-- Async pipe is also going to subscribe internally
+
+Observables 
+	-- Not going to be shared by default
+		-- each time we subscribe to an observable, a new chain is created. One subscription and the other subscription are completly different and not copies
+	-- Hot or cold
+		cold observable
+			Observable on which there are no subscriptions
+		Hot Observable
+			Observable on which there is atlaest one subscription.
+
+
+
+Subject -- multicasting; one subject and multiple subscriptions. one message will be sent to multiple subscribers
+BehaviourSubject
+
+
+Observables Operators
+	--of,from (creation of observables)
+	-- map (transforming the data in observable)
+	-- filter(filtering the data in observable)
+	-- interval(ntime in ms); emitting on an infinite basis ascending value after  every n ms
+	-- take(m); emit the first m values from the source observable and then complete
+	-- tap -- write any side effect
+
+HttpClient
+	-- Add a module HttpClientModule in app.module.ts in the imports metadata
+	import {HttpClientModule} from "@angular/common/http"
+	-- Inject the service HttpClient
