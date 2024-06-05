@@ -1,0 +1,45 @@
+Observables 
+
+	-- Run in parallel(multiple requests to different api) and combine the results
+	-- Run in sequential(post req to orders; after that put reqest to products table to reduce the quantity)
+	-- Avoid giving duplicate requests
+
+Observable -- handle streams of data; unicasted or multicasted
+Subject -- Observable+Observer; no initial value required; multicasting
+var sub$=new Subject<string>();
+sub$.next("happy");
+sub$.subscribe((value)=>{
+	console.log("Emotion",value);
+})
+BehaviourSubject -- same as subject; initial value required; multicasting
+
+
+
+Http Headers
+Content-type:
+authorisation tokens
+Access-Control-Allow-Origin
+	-- Import HttpHeaders from angular/common/http
+	-- Immutable in nature(once set, should not be changed)
+	-- 
+1.	const headers={"content-type":"application/json"};//not a best practice
+2.	const headers=new HttpHeaders().set("content-type","application/json");
+3.	const headers=new HttpHeaders();
+	headers.set("content-type","application/json");//wrong
+4. 	const headers=new HttpHeaders();
+	headers=headers.append("content-type","application/json");
+5. 	const headers=new HttpHeaders()
+	.set("Access-Control-Allow-Origin","*")
+	.append("content-type","application/json");
+
+
+
+
+	
+	
+Debouncing
+Post 
+Put
+Delete
+
+Ngrx
