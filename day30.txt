@@ -1,0 +1,186 @@
+
+
+1. Previous requests should get cancelled when a new request is given
+2. Delay between 2 requests(500 ms)
+3. Populate the UI with the latest response
+
+Debouncing -- Delay between the requests
+
+
+ngrx:
+	-- Angular way of storing the data in the client side  but as a centralised source state 
+	-- Data is existing as part of Angular app
+	-- Centralised way of storing data
+	-- One centralised storage
+	-- Redux for Angular
+	-- Immutability
+	-- Unidirectional flow of data
+
+
+Store -- Centralised data
+Reducer(s) -- Pure function
+	-- Takes in 2 params -- state and actions
+	-- Based on actions, will return a new state after performing the required action on the old state
+	-- Only reducers can modify the state
+Action 
+	-- How to change the state
+	-- Dispatch the action
+		-- Implicitly call the reducer with the action
+Select -- Return the current state
+State -- Actual data which u want to work with
+
+
+1. Decide the actions in the project
+2. Create the various reducers
+3. Create the initial state
+4. Create the store with the reducers and state
+5. In components
+	dispatch actions -- will modify the state(by calling the reducers)
+	selector -- will return the entire state
+
+
+Redux:
+var initialState={
+	empArr:[{empId:101,empName:"Asha",salary:1001,deptId:"D1"},
+		{empId:102,empName:"Gaurav",salary:2000,deptId:"D1"},
+		{empId:103,empName:"Karan",salary:2000,deptId:"D2"},
+		{empId:104,empName:"Kishan",salary:3000,deptId:"D1"},
+		{empId:105,empName:"Keshav",salary:3500,deptId:"D2"},
+		{empId:106,empName:"Pran",salary:4000,deptId:"D3"},
+		{empId:107,empName:"Saurav",salary:3800,deptId:"D3"}
+		],
+	projectsArr:[]
+}
+
+const addEmp={type:"ADDEMP",payload:{empId:108,empName:"Sara",salary:1001,deptId:"D1"}}
+const delEmp={type:"DELEMP",payload:{empId:102}}
+const upEmp={type:"UPDATEEMP",payload:{empId:108,empName:"Lara",salary:134567,deptId:"D1"}}
+
+const addProject1={type:"ADDPROJECT",payload:{projectId:"P101",empArr:[101,103]}}
+const addProject2={type:"ADDPROJECT",payload:{projectId:"P102",empArr:[102,104]}}
+const addProject3={type:"ADDPROJECT",payload:{projectId:"P103",empArr:[101,105]}}
+
+const delProject={type:"DELPROJECT",payload:{projectId:"P103"}}
+
+function myReducer(state,actions)
+{
+	var newState={...state};// create a copy
+	switch(actions.type)
+	{
+		case "ADDEMP":newState.empArr.push(actions.payload);
+				break;
+		case "DELEMP":var pos=newState.empArr.findIndex(item => item.empId == actions.payload.empId);
+				if(pos >=0)
+				{
+					newState.empArr.splice(pos,1);
+				}
+				break;
+		case "UPDATEEMP": var pos=newState.empArr.findIndex(item => item.empId == actions.payload.empId);
+				if(pos >=0)
+				{
+					newState.empArr.splice(pos,1,actions.payload);
+				}
+				break;
+		case "ADDPROJECT":newState.projectsArr.push(actions.payload);
+				break;
+		case "DELPROJECT": var pos=newState.projectsArr.findIndex(item => item.projectId == actions.payload.projectId);
+				if(pos >=0)
+				{
+					newState.projectsArr.splice(pos,1);
+				}
+				break
+	}
+	return newState;
+	
+}
+
+// create the store : state and reducer
+var store=createStore(myReducer,initialState);
+
+store.subscribe(state=>console.log(state));
+
+// dispatching the actions:
+
+store.dispatch(addEmp);// dispatch the action; will call the reducer; reducer will get executed; corresponding switch case will get executed; state will have 101...108 
+// state.empArr: 101... 108; projectsArr:[]
+
+store.dispatch({type:"ADDEMP",payload:{empId:109,empName:"Tara",salary:12001,deptId:"D1"}});
+// state.empArr: 101... 109; state.projectsArr:[]
+
+store.dispatch(delEmp);
+
+store.dispatch(addProject1);
+// state.empArr: 101,103...109; state.projectsArr:[P101]
+
+Todos Projects:
+App loads: Set(list) of todo tasks
+	Task -- checkbox, delete icon
+	Completed tasks: List of tasks completed
+	Add task
+Initial state: {taskList:[],completedtaskList:[]}
+Actions: 
+	"ADDTASK"
+	"MARKTASKASCOMPLETED"
+	"DELTASK"
+	"LOADTASKSFROMAPI"
+	"REVERTCOMPLETED"
+
+
+1. ng add @ngrx/store@16
+2. Create a store folder in app folder
+3. Create some files in store
+	task interface
+	task.action.ts
+	task.reducer.ts
+	task.store.ts
+4. Create a service where i will get the tasks from the server
+
+
+	
+
+
+createActionGroup:
+(alias) createActionGroup<string, Record<string, ActionCreatorProps<unknown> | Creator>>(config: ActionGroupConfig<string, Record<string, ActionCreatorProps<unknown> | Creator>>): ActionGroup<...>
+import createActionGroup
+@description — A function that creates a group of action creators with the same source.
+
+@param config
+An object that contains a source and dictionary of events. An event is a key-value pair of an event name and event props.
+
+@returns
+A dictionary of action creators. The name of each action creator is created by camel casing the event name. The type of each action is created using the "[Source] Event Name" pattern.
+
+@usageNotes
+
+const authApiActions = createActionGroup({
+  source: 'Auth API',
+  events: {
+    // defining events with payload using the `props` function
+    'Login Success': props<{ userId: number; token: string }>(),
+    'Login Failure': props<{ error: string }>(),
+
+    // defining an event without payload using the `emptyProps` function
+    'Logout Success': emptyProps(),
+
+    // defining an event with payload using the props factory
+    'Logout Failure': (error: Error) => ({ error }),
+  },
+});
+
+// action type: "[Auth API] Login Success"
+authApiActions.loginSuccess({ userId: 10, token: 'ngrx' });
+
+// action type: "[Auth API] Login Failure"
+authApiActions.loginFailure({ error: 'Login Failure!' });
+
+// action type: "[Auth API] Logout Success"
+authApiActions.logoutSuccess();
+
+// action type: "[Auth API] Logout Failure";
+authApiActions.logoutFailure(new Error('Logout Failure!'));
+
+
+
+
+
+ 
