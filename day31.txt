@@ -1,0 +1,8 @@
+// Data type of state -- Should always be an Object
+// State --Can hold various kinds of information -- tasks:array, completedTasks: array
+// reducer -- pure function -- state, actions
+// can there be more than 1 reducer -- YES
+// Multiple reducers -- seperation of concerns, modularity
+// Each reducer -- can have its own slice of state
+// task.reducer.ts --> tasks:array
+// completedTask.reducer.ts --> completedTasks:array
