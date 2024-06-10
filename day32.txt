@@ -1,0 +1,98 @@
+Performance :
+	-- What is performance
+		-- fast angular app -- speed
+			1. Initial load 
+				Make it faster
+				-- Remove unused components/directives/pipes/modules
+					-- reduce the size of main.js
+				-- Reduce the size of node_modules folder
+					-- Remove the unnecessary dependencies:
+						Unit testing -- karma 
+						Production -- is this module required -- NO
+						Install the dependency -- devDependency
+				-- Images/ SVG's 
+					-- consume memory
+					-- bundled 
+				
+			2. Interaction from the user 
+				-- Check the network tab for the time
+				-- Check the observables -- is it unsubscribed when its completed
+				-- Change detection strategy
+					-- default, onPush
+				-- Pipes
+					-- pure pipe and impure pipe
+				
+
+		-- Memory 
+			-- Optimised
+				--Lazy loading 
+		-- Error handling / User Experience
+			-- Proper display of error messages
+			-- Page 404 component
+			-- Product Manage -- When the user is not logged in ; auth guards 
+		-- Concurrency 
+		-- Scalability
+			Amazon:
+			On a normal day -- 10 million
+			On a sales day -- 100 million (3-4 days)
+			Post 1 week after the sale -- 10 million
+			Vertical scaling
+				-- making the single server more powerful (CPU, memory)
+			Horizontal scaling
+				-- having multiple simple servers which will host the app;
+				-- High availability, less latency
+			Amazon app -- Horizontal scaling
+			ATC In Airports-- Horizontal ; Server can't be down even for a second
+
+			
+		
+			
+	-- When should performance come into the app
+	-- What factors come into play
+
+
+npm start
+	-- ng serve
+	-- server will start
+	-- ts translated to js 
+	-- compilation
+	-- start the bundling process; configure; complete 
+		-- Minification and uglification of js
+			-- reduce(optimise) the size of js files
+			-- remove all the white spacing;replace all big names with a short names;
+		--  When the app is loaded in the browser -- what all is loaded
+			-- what all is bundled			
+				-- index.html, all the assets, everything inside src, main.ts,styles and global styles, node-modules
+			main.js -- everything inside src
+			vendor.js -- node_modules files and folders
+			-- how is bundling going to happen:
+				-- single file
+				-- many files
+				
+			
+	
+	-- 
+
+
+
+Change detection strategy:
+	-- At the background , angular is going to keep looking changes; 
+When is a component updated/ detected for changes
+Default strategy
+	-- Input ref changes
+	-- Event -- parent and child will be checked for changes
+	-- Async pipe linked to a template ; new value is emitted
+	-- Manually trigger the change detection
+
+Change detection -- costly affair
+Try to minimise the change detection cycles:
+
+OnPush detection 
+	-- child componnent will not be checked always
+	-- Will be checked when the data reference changes; Not mutating the data
+	-- Lesser change detection cycles
+	-- makes the presentational components faster
+
+
+
+	
