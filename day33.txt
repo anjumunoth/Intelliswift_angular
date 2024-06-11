@@ -1,0 +1,32 @@
+https://codeshare.io/Bd88My
+
+
+Pipes:
+	Pure pipe
+	Impure pipe
+
+Pipe.pure?: boolean | undefined
+When true, the pipe is pure, meaning that the transform() method is invoked only when its input arguments change. Pipes are pure by default.
+
+If the pipe has internal state (that is, the result depends on state other than its arguments), set pure to false. In this case, the pipe is invoked on each change-detection cycle, even if the arguments have not changed.
+
+If the transform is a pure function , create a pure pipe
+If the transform is a impure function , create a impure pipe
+
+Pure pipe 			Impure pipe
+1. Pure Pipe is executed only when there are changes to the args; Every change detection cycle will execute the impure pipe
+2. Pure pipe -- One instance ; Impure pipe -- multiple instances
+3. Pure pipe -- Optimise app performance; impure pipe -- degrade the app performance
+
+
+Tree shaking: dead code elimination
+	-- unused modules/components/pipes,directives
+	-- remove them for the bundle
+	-- Setting the optimisation to true in angular.json
+Enables optimization of the build output. Including minification of scripts and styles, tree-shaking, dead-code elimination, inlining of critical CSS and fonts inlining	
+
+Unit Testing:
+
+
+
+
