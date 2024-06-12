@@ -1,0 +1,48 @@
+Angular 17, Angular 18
+
+1. Standalone components
+	-- Is there an app.module.ts  -- NO
+		Logical collection of components, pipes, directives, services,modules 
+	-- @Component decorator:
+		Whenever a class has to act like a component -- add the decorator
+		-- Metadata
+			-- selector
+			--template or templateUrl
+			-- styles or stylesUrl
+			-- standalone:true
+			-- imports: [include all the directives, pipes, components (inbuilt and custom)]
+			-- providers:[include all the services]
+	-- Default component in v17 onwards
+	-- Use case: 
+		-- Make it clear what are the dependencies of each component
+		-- Memory,Performance optimisation
+		-- Signals (state management); remove zone.js
+		-- Defer components(lazy loading of component/ block of code)
+		-- decoupling the components from its unwanted dependencies
+	
+Deferrable views
+Signal: Value (primitive or array or object)
+	-- Many consumers
+	-- Value changes, the consumers can be notified
+	-- Two types: ReadOnly signal; Writable signals
+
+
+ctr=signal(0);
+console.log(ctr());
+ctr.set(100);
+ctr.update((prevValue)=>{return prevValue+1})
+
+
+Effects: Executed every time the value in the signal changes
+effects(()=>{
+	console.log(ctr());
+})
+
+ComputedSignals:
+	-- ReadOnly signal which will derive its value from another signal 
+
+*ngFor , *ngIf
+	-- structural directives
+@if, @for 
+			
+			
